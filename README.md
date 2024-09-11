@@ -1,8 +1,8 @@
 # charge_card
 
-![لقطة شاشة 1](screenshots/screenshot1.jpeg)
-![لقطة شاشة 2](screenshots/screenshot2.jpeg)
-![لقطة شاشة 2](screenshots/screenshot3.jpeg)
+![لقطة شاشة 1](screenshots/screenshot1.png)
+![لقطة شاشة 2](screenshots/screenshot2.png)
+![لقطة شاشة 2](screenshots/screenshot3.png)
 
 
 
