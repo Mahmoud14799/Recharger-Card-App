@@ -1,9 +1,10 @@
 # charge_card
 
-![لقطة شاشة 1](screenshots/screenshot1.png)
-![لقطة شاشة 2](screenshots/screenshot2.png)
-![لقطة شاشة 2](screenshots/screenshot3.png)
-
+<p>
+  <img src="screenshots/screenshot1.png" width="300" style="display: inline-block; margin-right: 10px;" />
+  <img src="screenshots/screenshot2.png" width="300" style="display: inline-block;" />
+   <img src="screenshots/screenshot3.png" width="300" style="display: inline-block;" />
+</p>
 
 
 
