@@ -1,9 +1,9 @@
 # charge_card
 
 <p>
-  <img src="screenshots/screenshot1.png" width="300" style="display: inline-block; margin-right: 10px;" />
-  <img src="screenshots/screenshot2.png" width="300" style="display: inline-block;" />
-   <img src="screenshots/screenshot3.png" width="300" style="display: inline-block;" />
+  <img src="screenshots/screenshot1.png" width="100" style="display: inline-block; margin-right: 10px;" />
+  <img src="screenshots/screenshot2.png" width="100" style="display: inline-block;" />
+   <img src="screenshots/screenshot3.png" width="100" style="display: inline-block;" />
 </p>
 
 
