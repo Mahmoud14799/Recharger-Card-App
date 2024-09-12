@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:charge_card/core/Utils/send_number_to_telpad.dart';
 import 'package:charge_card/core/Utils/show_snack_bar.dart';
 import 'package:charge_card/features/scanner_view/data/model/card_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -48,17 +48,22 @@ class GalleryScannerCubit extends Cubit<GalleryScannerState> {
           if (croppedImage != null) {
             _image = File(croppedImage.path);
             emit(OcrImagePicked(_image!));
-            print('Image picked and cropped: ${_image!.path}'); // Debug
-            await _processImage(context);
+            if (context.mounted) {
+              await _processImage(context);
+            }
           }
         }
       } else if (status.isDenied) {
         openAppSettings();
       } else {
-        showSnackBar('لا توجد أذونات للوصول إلى الصور', context);
+        if (context.mounted) {
+          showSnackBar('لا توجد أذونات للوصول إلى الصور', context);
+        }
       }
     } catch (e) {
-      showSnackBar('حدث خطاء اثناء اختيار الصورة: $e', context);
+      if (context.mounted) {
+        showSnackBar('حدث خطاء اثناء اختيار الصورة: $e', context);
+      }
     }
   }
 
@@ -69,13 +74,16 @@ class GalleryScannerCubit extends Cubit<GalleryScannerState> {
       try {
         final inputImage = InputImage.fromFile(_image!);
         final requestText = await recognizedText.processImage(inputImage);
-        sendNumberToTel(requestText.text, context, card);
+        if (context.mounted) {
+          sendNumberToTel(requestText.text, context, card);
+        }
         emit(OcrTextScanned(requestText.text));
 
         emit(const OcrProcessing(false));
-        print('Scanned text: ${requestText.text}'); // Debug
       } catch (e) {
-        showSnackBar('لم يستطيع الحصول علي الرقم', context);
+        if (context.mounted) {
+          showSnackBar('لم يستطيع الحصول علي الرقم', context);
+        }
       }
     }
   }

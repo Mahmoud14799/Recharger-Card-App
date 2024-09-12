@@ -2,10 +2,12 @@
     package="com.example.yourapp">
 
     <!-- أذونات الوصول للملفات -->
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.whatsapp"/>
 
     <application
         android:label="اشحن كارتك"

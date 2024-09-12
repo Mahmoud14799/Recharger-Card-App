@@ -39,14 +39,19 @@ Future<void> pickImageHelper(RequestParams param) async {
         }
       } catch (e) {
         // عرض رسالة خطأ في حال حدوث استثناء أثناء القص
-        showSnackBar('حدث خطأ أثناء قص الصورة: $e', param.context);
+        if (param.context.mounted) {
+          showSnackBar('حدث خطأ أثناء قص الصورة: $e', param.context);
+        }
       }
     } else {
-      // عرض رسالة إذا لم يتم اختيار أي صورة
-      showSnackBar('لم يتم اختيار أي صورة', param.context);
+      if (param.context.mounted) {
+        showSnackBar('لم يتم اختيار أي صورة', param.context);
+      }
     }
   } catch (e) {
     // عرض رسالة خطأ في حال حدوث استثناء أثناء اختيار الصورة
-    showSnackBar('حدث خطأ أثناء اختيار الصورة: $e', param.context);
+    if (param.context.mounted) {
+      showSnackBar('حدث خطأ أثناء اختيار الصورة: $e', param.context);
+    }
   }
 }

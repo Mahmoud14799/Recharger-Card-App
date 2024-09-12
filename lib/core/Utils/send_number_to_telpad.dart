@@ -10,7 +10,7 @@ Future<void> sendNumberToTel(
     final String codeServicePart =
         card.codeService.isNotEmpty ? card.codeService : '';
     final Uri phoneNumber = Uri(
-        path: "${card.cardCode}$codeServicePart$organizedText#", scheme: 'tel');
+        path: '${card.cardCode}$codeServicePart$organizedText#', scheme: 'tel');
     if (await canLaunchUrl(phoneNumber)) {
       await launchUrl(phoneNumber);
     } else {

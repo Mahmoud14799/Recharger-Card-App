@@ -78,12 +78,14 @@ void showPersonalInfoBottomSheet(BuildContext context) {
                       whatsappUrl,
                     );
                   } else {
-                    Navigator.pop(context);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('لا يمكن فتح WhatsApp'),
-                      ),
-                    );
+                    if (context.mounted) {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('لا يمكن فتح WhatsApp'),
+                        ),
+                      );
+                    }
                   }
                 },
                 style: ElevatedButton.styleFrom(
