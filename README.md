@@ -1,9 +1,13 @@
 # charge_card
 
 <p>
-  <img src="screenshots/screenshot1.png" width="100" style="display: inline-block; margin-right: 10px;" />
-  <img src="screenshots/screenshot2.png" width="100" style="display: inline-block;" />
-   <img src="screenshots/screenshot3.png" width="100" style="display: inline-block;" />
+<<<<<<< HEAD
+ 
+=======
+  <img src="screenshots/screenshot1.png" width="300" style="display: inline-block; margin-right: 10px;" />
+  <img src="screenshots/screenshot2.png" width="300" style="display: inline-block;" />
+   <img src="screenshots/screenshot3.png" width="300" style="display: inline-block;" />
+>>>>>>> 0a5fbc7fec2e94e85c7172c1bda3ac56e3452d04
 </p>
 
 
