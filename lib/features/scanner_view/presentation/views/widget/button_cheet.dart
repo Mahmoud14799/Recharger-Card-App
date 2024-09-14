@@ -70,12 +70,13 @@ void showPersonalInfoBottomSheet(BuildContext context) {
             Center(
               child: ElevatedButton(
                 onPressed: () async {
-                  const url = 'whatsapp://send?phone=$phoneNumber&text=Hello ';
+                  const url = 'https://wa.me/$phoneNumber?text=Hello';
                   final whatsappUrl = Uri.parse(url);
 
                   if (await canLaunchUrl(whatsappUrl)) {
                     await launchUrl(
                       whatsappUrl,
+                      mode: LaunchMode.externalApplication,
                     );
                   } else {
                     if (context.mounted) {
@@ -98,6 +99,60 @@ void showPersonalInfoBottomSheet(BuildContext context) {
                   style: TextStyle(fontSize: 18), // حجم الخط أكبر لزر WhatsApp
                 ),
               ),
+            ),
+            const SizedBox(height: 24),
+            const Divider(), // خط فاصل
+            // روابط سياسة الخصوصية وشروط الاستخدام
+            ListTile(
+              leading: const Icon(Icons.privacy_tip, color: Colors.blue),
+              title: const Text('سياسة الخصوصية'),
+              onTap: () async {
+                final Uri privacyPolicyUrl = Uri.parse(
+                  'https://www.freeprivacypolicy.com/live/2a20be92-52ca-4d14-b4d8-470364575427',
+                );
+
+                try {
+                  if (await canLaunchUrl(privacyPolicyUrl)) {
+                    await launchUrl(
+                      privacyPolicyUrl,
+                      mode: LaunchMode
+                          .externalApplication, // فتح الرابط في تطبيق خارجي
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('لا يمكن فتح رابط سياسة الخصوصية'),
+                      ),
+                    );
+                  }
+                } catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('خطأ: $e'),
+                    ),
+                  );
+                }
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.rule, color: Colors.blue),
+              title: const Text('شروط الاستخدام'),
+              onTap: () async {
+                const termsOfServiceUrl =
+                    'https://www.freeprivacypolicy.com/live/2a20be92-52ca-4d14-b4d8-470364575427';
+
+                final url = Uri.parse(termsOfServiceUrl);
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url, mode: LaunchMode.externalApplication);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('لا يمكن فتح رابط شروط الاستخدام'),
+                    ),
+                  );
+                }
+              },
             ),
           ],
         ),
